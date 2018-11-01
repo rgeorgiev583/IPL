@@ -91,35 +91,41 @@ int main(int argc, const char* const argv[]) {
     puts(
         "<!DOCTYPE html>\n"
         "<html>\n"
+        "\n"
         "<head>\n"
         "    <style>\n"
         "        .comment {\n"
         "            color: gray;\n"
         "        }\n"
+        "\n"
         "        .keyword {\n"
         "            color: red;\n"
         "        }\n"
+        "\n"
         "        .string {\n"
         "            color: green;\n"
         "        }\n"
+        "\n"
         "        .number {\n"
         "            color: blue;\n"
         "        }\n"
+        "\n"
         "        .symbol {\n"
         "            font-weight: bold;\n"
         "        }\n"
         "    </style>\n"
         "</head>\n"
+        "\n"
         "<body>\n"
         "    <pre class=\"code\">\n"
     );
     yylex();
     puts(
         "\n"
-        "\n"
         "    </pre>\n"
         "</body>\n"
-        "</html>\n"
+        "\n"
+        "</html>"
     );
 
     return 0;
