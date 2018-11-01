@@ -13,9 +13,9 @@ HEX_DIGIT          {DEC_DIGIT}|[a-fA-F]
 IDENTIFIER             {IDENTIFIER_FIRST_CHAR}({DEC_DIGIT}|{IDENTIFIER_FIRST_CHAR})*
 IDENTIFIER_FIRST_CHAR  [A-Za-z_]
 
-COMMENT        {BLOCK_COMMENT}|{LINE_COMMENT}
-BLOCK_COMMENT  "/*".*"*/"
-LINE_COMMENT   "//"{NONEOL_CHAR}*
+LINE_COMMENT         "//"{NONEOL_CHAR}*
+BLOCK_COMMENT_BEGIN  "/*"
+BLOCK_COMMENT_END    "*/"
 
 KEYWORD  _|abstract|alignof|as|become|box|break|const|continue|crate|do|else|enum|extern|false|final|fn|for|if|impl|in|let|loop|macro|match|mod|move|mut|offsetof|override|priv|proc|pub|pure|ref|return|Self|self|sizeof|static|struct|super|trait|true|type|typeof|unsafe|unsized|use|virtual|where|while|yield
 
@@ -63,8 +63,16 @@ SYMBOL  "::"|"->"|"#"|"["|"]"|"("|")"|"{"|"}"|","|";"
     printf("<span class=\"string\">%s</span>", yytext);
 }
 
-{COMMENT} {
+{LINE_COMMENT} {
     printf("<span class=\"comment\">%s</span>", yytext);
+}
+
+{BLOCK_COMMENT_BEGIN} {
+    printf("<span class=\"comment\">%s", yytext);
+}
+
+{BLOCK_COMMENT_END} {
+    printf("%s</span>", yytext);
 }
 
 . {
