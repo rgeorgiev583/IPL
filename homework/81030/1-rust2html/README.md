@@ -8,8 +8,8 @@ This is a solution to the first homework assignment.
 
 On Unix-like OS:
 
-    flex -o rust2html.c rust2html.flex
-    cc -o rust2html rust2html.c
+    flex rust2html.l
+    cc -o rust2html lex.yy.c
 
 ## Usage
 
