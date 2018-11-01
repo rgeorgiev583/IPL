@@ -2051,7 +2051,7 @@ int yywrap() {
     return 1;
 }
 
-int main(int argc, const char* argv[]) {
+int main(int argc, const char* const argv[]) {
     yyin = argc > 1 ? fopen(argv[1], "r") : stdin;
 
     puts(
@@ -2083,7 +2083,8 @@ int main(int argc, const char* argv[]) {
     puts(
         "    </pre>"
         "</body>"
-        "</html>");
+        "</html>"
+    );
 
     return 0;
 }
