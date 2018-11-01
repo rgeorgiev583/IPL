@@ -1,3 +1,5 @@
 a.out
+lex.yy.c
 
-/test/
+/rust2html
+/example.html
