@@ -703,9 +703,10 @@ char *yytext;
 #line 1 "rust2html.flex"
 /* scanner for the Rust programming language */
 #line 4 "rust2html.flex"
-#define YY_NO_UNISTD_H
-#line 707 "rust2html.c"
+%option nounistd
+%option noyywrap
 #line 708 "rust2html.c"
+#line 709 "rust2html.c"
 
 #define INITIAL 0
 
@@ -922,10 +923,10 @@ YY_DECL
 		}
 
 	{
-#line 44 "rust2html.flex"
+#line 45 "rust2html.flex"
 
 
-#line 928 "rust2html.c"
+#line 929 "rust2html.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -984,28 +985,28 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 46 "rust2html.flex"
+#line 47 "rust2html.flex"
 {
     printf("<span class=\"symbol\">%s</span>", yytext);
 }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 50 "rust2html.flex"
+#line 51 "rust2html.flex"
 {
     printf("<span class=\"keyword\">%s</span>", yytext);
 }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 54 "rust2html.flex"
+#line 55 "rust2html.flex"
 {
     printf("<span class=\"number\">%s</span>", yytext);
 }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 58 "rust2html.flex"
+#line 59 "rust2html.flex"
 {
     printf("<span class=\"identifier\">%s</span>", yytext);
 }
@@ -1013,45 +1014,45 @@ YY_RULE_SETUP
 case 5:
 /* rule 5 can match eol */
 YY_RULE_SETUP
-#line 62 "rust2html.flex"
+#line 63 "rust2html.flex"
 {
     printf("<span class=\"string\">%s</span>", yytext);
 }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 66 "rust2html.flex"
+#line 67 "rust2html.flex"
 {
     printf("<span class=\"comment\">%s</span>", yytext);
 }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 70 "rust2html.flex"
+#line 71 "rust2html.flex"
 {
     printf("<span class=\"comment\">%s", yytext);
 }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 74 "rust2html.flex"
+#line 75 "rust2html.flex"
 {
     printf("%s</span>", yytext);
 }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 78 "rust2html.flex"
+#line 79 "rust2html.flex"
 {
     printf("%s", yytext);  /* echo the rest */
 }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 82 "rust2html.flex"
+#line 83 "rust2html.flex"
 ECHO;
 	YY_BREAK
-#line 1054 "rust2html.c"
+#line 1055 "rust2html.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -2056,12 +2057,8 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 82 "rust2html.flex"
+#line 83 "rust2html.flex"
 
-
-int yywrap() {
-    return 1;
-}
 
 int main(int argc, const char* const argv[]) {
     yyin = argc > 1 ? fopen(argv[1], "r") : stdin;

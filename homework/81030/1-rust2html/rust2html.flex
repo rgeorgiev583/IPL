@@ -1,8 +1,7 @@
 /* scanner for the Rust programming language */
 
-%{
-#define YY_NO_UNISTD_H
-%}
+%option nounistd
+%option noyywrap
 
 NONEOL_CHAR        .
 DEC_DIGIT          0|{NONZERO_DEC_DIGIT}
@@ -80,10 +79,6 @@ SYMBOL  "::"|"->"|"#"|"["|"]"|"("|")"|"{"|"}"|","|";"
 }
 
 %%
-
-int yywrap() {
-    return 1;
-}
 
 int main(int argc, const char* const argv[]) {
     yyin = argc > 1 ? fopen(argv[1], "r") : stdin;
