@@ -4,7 +4,7 @@
 #define YY_NO_UNISTD_H
 %}
 
-NONEOL_CHAR        [^\n]
+NONEOL_CHAR        .
 DEC_DIGIT          0|{NONZERO_DEC_DIGIT}
 NONZERO_DEC_DIGIT  [1-9]
 OCT_DIGIT          [0-7]
