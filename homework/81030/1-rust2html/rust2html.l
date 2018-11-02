@@ -83,7 +83,7 @@ SYMBOL  "::"|"->"|"#"|"["|"]"|"("|")"|"{"|"}"|","|";"
 int main(int argc, const char* const argv[]) {
     yyin = argc > 1 ? fopen(argv[1], "r") : stdin;
 
-    puts(
+    printf(
         "<!DOCTYPE html>\n"
         "<html>\n"
         "\n"
@@ -115,7 +115,7 @@ int main(int argc, const char* const argv[]) {
         "    <pre class=\"code\">\n"
     );
     yylex();
-    puts(
+    printf(
         "\n"
         "    </pre>\n"
         "</body>\n"
