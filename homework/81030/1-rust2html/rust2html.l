@@ -3,6 +3,11 @@
 %option nounistd
 %option noyywrap
 
+%{
+#define PRINT_HIGHLIGHTED_TOKEN(type) \
+    printf("<span class=\"" #type "\">%s</span>", yytext)
+%}
+
 NONEOL_CHAR        .
 DEC_DIGIT          0|{NONZERO_DEC_DIGIT}
 NONZERO_DEC_DIGIT  [1-9]
@@ -43,27 +48,27 @@ SYMBOL  "::"|"->"|"#"|"["|"]"|"("|")"|"{"|"}"|","|";"
 %%
 
 {SYMBOL} {
-    printf("<span class=\"symbol\">%s</span>", yytext);
+    PRINT_HIGHLIGHTED_TOKEN(symbol);
 }
 
 {KEYWORD} {
-    printf("<span class=\"keyword\">%s</span>", yytext);
+    PRINT_HIGHLIGHTED_TOKEN(keyword);
 }
 
 {NUMBER_LITERAL} {
-    printf("<span class=\"number\">%s</span>", yytext);
+    PRINT_HIGHLIGHTED_TOKEN(number);
 }
 
 {IDENTIFIER} {
-    printf("<span class=\"identifier\">%s</span>", yytext);
+    PRINT_HIGHLIGHTED_TOKEN(identifier);
 }
 
 {CHAR_LITERAL}|{STRING_LITERAL}|{BYTE_CHAR_LITERAL}|{BYTE_STRING_LITERAL} {
-    printf("<span class=\"string\">%s</span>", yytext);
+    PRINT_HIGHLIGHTED_TOKEN(string);
 }
 
 {LINE_COMMENT} {
-    printf("<span class=\"comment\">%s</span>", yytext);
+    PRINT_HIGHLIGHTED_TOKEN(comment);
 }
 
 {BLOCK_COMMENT_BEGIN} {
