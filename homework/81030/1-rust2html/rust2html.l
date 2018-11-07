@@ -1,5 +1,3 @@
-/* scanner for the Rust programming language */
-
 %option nounistd
 %option noyywrap
 
