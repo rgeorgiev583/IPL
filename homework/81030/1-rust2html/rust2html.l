@@ -53,12 +53,12 @@ SYMBOL  "::"|"->"|"#"|"["|"]"|"("|")"|"{"|"}"|","|";"|":"|"?"|"!"|"."|"'"|"$"|"@
     PRINT_HIGHLIGHTED_TOKEN(keyword);
 }
 
-{NUMBER_LITERAL} {
-    PRINT_HIGHLIGHTED_TOKEN(number);
-}
-
 {IDENTIFIER} {
     PRINT_HIGHLIGHTED_TOKEN(identifier);
+}
+
+{NUMBER_LITERAL} {
+    PRINT_HIGHLIGHTED_TOKEN(number);
 }
 
 {CHAR_LITERAL}|{STRING_LITERAL}|{BYTE_CHAR_LITERAL}|{BYTE_STRING_LITERAL} {
