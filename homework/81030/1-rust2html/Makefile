@@ -11,7 +11,7 @@ endif
 all: $(PROGRAM_NAME)
 
 $(PROGRAM_NAME): lex.yy.c
-	$(CC) -o $@ $<
+	$(CC) $(CFLAGS) -o $@ $<
 
 lex.yy.c: $(PROGRAM_NAME).l
 	$(LEX) $(LEX_FLAGS) $<
