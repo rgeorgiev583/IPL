@@ -16,3 +16,14 @@ On Unix-like OS:
 This will generate a HTML document named `example.html` with a colorized version of the `example.rs` Rust program:
 
     ./rust2html example.rs > example.html
+
+## Debugging
+
+If you want to be able to debug the scanner, generate its code using the `-d` flag with Flex:
+
+    flex -d rust2html.l
+    cc -o rust2html lex.yy.c
+
+The following invocation of `rust2html` will also write its `STDERR` output to the `example.log` file (which is the main thing to look at when trying to debug the program):
+
+    ./rust2html example.rs > example.html 2> example.log
