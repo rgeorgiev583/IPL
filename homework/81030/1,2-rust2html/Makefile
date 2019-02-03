@@ -1,4 +1,6 @@
 PROGRAM_SOURCE_FILENAMES := $(PROGRAM_NAMES:%=%.lex.yy.c)
+EXAMPLE_NAMES := example example-chains example-ugly
+EXAMPLE_OUTPUT_DOCUMENT_FILENAMES := $(EXAMPLE_NAMES:%=%.html)
 
 LEX := flex
 
@@ -22,4 +24,4 @@ all: $(PROGRAM_NAMES)
 	$(LEX) $(LEX_FLAGS) -o $@ $<
 
 clean:
-	$(RM) $(PROGRAM_NAMES) $(PROGRAM_SOURCE_FILENAMES) lex.yy.c example.html
+	$(RM) $(PROGRAM_NAMES) $(PROGRAM_SOURCE_FILENAMES) lex.yy.c $(EXAMPLE_OUTPUT_DOCUMENT_FILENAMES)
