@@ -7,6 +7,10 @@ ifdef DEBUG
 LEX_FLAGS := -d
 endif
 
+ifdef USE_CXX
+CC := $(CXX)
+endif
+
 .PHONY: all clean
 
 all: $(PROGRAM_NAMES)
