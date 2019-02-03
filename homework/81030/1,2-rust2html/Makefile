@@ -1,5 +1,4 @@
-PROGRAM_NAMES := rust2html rust2html-prettyprint
-PROGRAM_SOURCE_FILENAMES := $(patsubst %,%.lex.yy.c,PROGRAM_NAMES)
+PROGRAM_SOURCE_FILENAMES := $(PROGRAM_NAMES:%=%.lex.yy.c)
 
 LEX := flex
 
