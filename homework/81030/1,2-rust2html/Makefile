@@ -5,6 +5,7 @@ LEX := flex
 
 ifdef DEBUG
 LEX_FLAGS := -d
+CFLAGS += -D_DEBUG
 endif
 
 ifdef USE_CXX
